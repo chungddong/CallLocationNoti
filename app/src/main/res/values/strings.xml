@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">CallLocationNoti</string>
+    <string name="app_name">신고위치 알리미</string>
+
+
+    <string name="NumberListPage">긴급전화 목록</string>
+    <string name="Btn_caution">이용 시 주의사항</string>
+
 </resources>
