@@ -5,4 +5,12 @@
     <string name="NumberListPage">긴급전화 목록</string>
     <string name="Btn_caution">이용 시 주의사항</string>
 
+    <!-- 번호 추가 다이얼로그 리소스 -->
+    <string name="Dialog_AddNum">새로운 번호 추가</string>
+    <string name="EnterNum">번호를 입력해주세요.</string>
+    <string name="DialogText">기호없이 입력해주세요</string>
+    <string name="Btn_Add">추가</string>
+    <string name="Btn_Cancel">취소</string>
+
+
 </resources>
