@@ -21,7 +21,7 @@
                 android:layout_width="61dp"
                 android:layout_height="65dp"
                 android:layout_gravity="center"
-                />
+                android:background="@drawable/ic_baseline_wb_twilight_24"/>
 
         </LinearLayout>
 
@@ -36,17 +36,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:layout_marginLeft="5dp"
                 android:gravity="center">
 
                 <TextView
-                    android:id="@+id/list_name"
+                    android:id="@+id/list_CallNum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="010-9999-9999"
+                    android:gravity="center"
+                    android:autoSizeTextType="uniform"
                     android:maxLines="1"
                     android:textColor="@color/black"
                     android:textSize="25dp"
-                    android:textAlignment="textStart"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -61,14 +63,16 @@
             android:layout_marginRight="10dp">
 
             <TextView
-                android:id="@+id/list_name"
+                android:id="@+id/list_CallMemo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="9999-9999"
+                android:text="전화메모"
                 android:maxLines="1"
+                android:layout_marginLeft="10dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
                 android:textColor="#434343"
-                android:textSize="25dp"
-                android:textAlignment="textEnd"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
 
