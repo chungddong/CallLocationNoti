@@ -55,7 +55,7 @@
             android:id="@+id/btn_merge"
             android:layout_gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="60dp"
             android:background="@drawable/btn_round"
             android:text="@string/Btn_caution"
             android:textColor="@color/white"
