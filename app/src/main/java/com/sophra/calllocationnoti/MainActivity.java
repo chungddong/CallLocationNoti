@@ -30,14 +30,14 @@ public class MainActivity extends AppCompatActivity {
         rv_main.setAdapter(rvAdapter);
         rv_main.setLayoutManager(new LinearLayoutManager(this));
 
-        items.add(new CallNumberClass("9999","대충메모"));
-        items.add(new CallNumberClass("9999","대충메모"));
-        items.add(new CallNumberClass("9999","대충메모"));
-        items.add(new CallNumberClass("9999","대충메모"));
-        items.add(new CallNumberClass("9999","대충메모"));
-        items.add(new CallNumberClass("9999","대충메모"));
-        items.add(new CallNumberClass("9999","대충메모"));
-        items.add(new CallNumberClass("9999","대충메모"));
+        items.add(new CallNumberClass("1111","대충메모"));
+        items.add(new CallNumberClass("2222","대충메모"));
+        items.add(new CallNumberClass("3333","대충메모"));
+        items.add(new CallNumberClass("4444","대충메모"));
+        items.add(new CallNumberClass("5555","대충메모"));
+        items.add(new CallNumberClass("6666","대충메모"));
+        items.add(new CallNumberClass("7777","대충메모"));
+        items.add(new CallNumberClass("8888","대충메모"));
 
 
         rvAdapter.setList(items);

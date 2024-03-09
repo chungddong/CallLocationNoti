@@ -21,8 +21,8 @@ import java.util.ArrayList;
 
 public class CallNumberListAdapter extends RecyclerView.Adapter<CallNumberListAdapter.ViewHolder> {
 
-    private ArrayList<CallNumberClass> items = new ArrayList<CallNumberClass>();
-    Dialog dialog;
+    private ArrayList<CallNumberClass> items = new ArrayList<CallNumberClass>(); //전화번호 아이템들 담은 리스트
+    Dialog dialog; 
 
 
     @NonNull
@@ -62,31 +62,36 @@ public class CallNumberListAdapter extends RecyclerView.Adapter<CallNumberListAd
                 @Override
                 public boolean onLongClick(View view) {
                     Log.d("CLN", "롱클릭함");
-
-                    int position = getAdapterPosition();
+                    
+                    int position = getAdapterPosition(); //선택한 위치 값
 
                     dialog = new Dialog(view.getContext());
                     dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                     dialog.setContentView(R.layout.dialog_default);
                     dialog.show();
 
-                    Button btn_confirm = view.findViewById(R.id.btn_confirm);
-                    Button btn_cancel = view.findViewById(R.id.btn_cancel);
+                    Button btn_confirm = dialog.findViewById(R.id.btn_confirm);
+                    Button btn_cancel = dialog.findViewById(R.id.btn_cancel);
 
+                    //삭제 확인
                     btn_confirm.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Toast.makeText(view.getContext(), position + "번 삭제하였습니다.", Toast.LENGTH_SHORT).show();
 
                             //해당 번호 리스트 삭제
-                            //TODO : position 번호 삭제해야함
+                            items.remove(position);
+                            notifyDataSetChanged();
+                            dialog.dismiss();
+
+                            Toast.makeText(view.getContext(), position + "삭제하였습니다.", Toast.LENGTH_SHORT).show();
                         }
                     });
 
+                    //삭제 취소
                     btn_cancel.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-
+                            dialog.dismiss();
                         }
                     });
 
