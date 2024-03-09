@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -17,11 +18,17 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<CallNumberClass> items = new ArrayList<CallNumberClass>(); //전화번로 리스트 클래스
     CallNumberListAdapter rvAdapter;
 
+    Button btn_add;
+    Button btn_caution;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        btn_add = findViewById(R.id.btn_add);
+        btn_caution = findViewById(R.id.btn_caution);
 
         //리스트뷰 바인딩
         rv_main = findViewById(R.id.rv_main);
