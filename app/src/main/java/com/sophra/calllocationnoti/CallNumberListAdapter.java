@@ -1,30 +1,50 @@
 package com.sophra.calllocationnoti;
 
+import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.w3c.dom.Text;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class CallNumberListAdapter extends RecyclerView.Adapter<CallNumberListAdapter.ViewHolder> {
+
+    private ArrayList<CallNumberClass> items = new ArrayList<CallNumberClass>();
+    Dialog dialog;
+
+
     @NonNull
     @Override
     public CallNumberListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false);
+        return new CallNumberListAdapter.ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CallNumberListAdapter.ViewHolder holder, int position) {
+        holder.onBind(items.get(position));
+    }
 
+    public void setList(ArrayList<CallNumberClass> list) {
+        this.items = list;
+        notifyDataSetChanged();
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return items.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -42,9 +62,43 @@ public class CallNumberListAdapter extends RecyclerView.Adapter<CallNumberListAd
                 @Override
                 public boolean onLongClick(View view) {
                     Log.d("CLN", "롱클릭함");
+
+                    int position = getAdapterPosition();
+
+                    dialog = new Dialog(view.getContext());
+                    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                    dialog.setContentView(R.layout.dialog_default);
+                    dialog.show();
+
+                    Button btn_confirm = view.findViewById(R.id.btn_confirm);
+                    Button btn_cancel = view.findViewById(R.id.btn_cancel);
+
+                    btn_confirm.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Toast.makeText(view.getContext(), position + "번 삭제하였습니다.", Toast.LENGTH_SHORT).show();
+
+                            //해당 번호 리스트 삭제
+                            //TODO : position 번호 삭제해야함
+                        }
+                    });
+
+                    btn_cancel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+
+                        }
+                    });
+
                     return false;
                 }
             });
+        }
+
+        void onBind(CallNumberClass list)
+        {
+            CallNumber.setText(list.getCallNum());
+            CallMemo.setText(list.getCallMemo());
         }
 
 

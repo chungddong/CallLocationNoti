@@ -1,6 +1,7 @@
 package com.sophra.calllocationnoti;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -12,8 +13,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView rv_main;
-
+    RecyclerView rv_main; //리사이클러뷰
+    ArrayList<CallNumberClass> items = new ArrayList<CallNumberClass>(); //전화번로 리스트 클래스
+    CallNumberListAdapter rvAdapter;
 
 
     @Override
@@ -23,6 +25,24 @@ public class MainActivity extends AppCompatActivity {
 
         //리스트뷰 바인딩
         rv_main = findViewById(R.id.rv_main);
+        rvAdapter = new CallNumberListAdapter();
+
+        rv_main.setAdapter(rvAdapter);
+        rv_main.setLayoutManager(new LinearLayoutManager(this));
+
+        items.add(new CallNumberClass("9999","대충메모"));
+        items.add(new CallNumberClass("9999","대충메모"));
+        items.add(new CallNumberClass("9999","대충메모"));
+        items.add(new CallNumberClass("9999","대충메모"));
+        items.add(new CallNumberClass("9999","대충메모"));
+        items.add(new CallNumberClass("9999","대충메모"));
+        items.add(new CallNumberClass("9999","대충메모"));
+        items.add(new CallNumberClass("9999","대충메모"));
+
+
+        rvAdapter.setList(items);
+
+
 
         //ArrayAdapter<String> adapter = new ArrayAdapter(this, R.layout.list_item, (List) listView_main);
 
