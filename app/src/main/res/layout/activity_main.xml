@@ -50,8 +50,13 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:layout_marginTop="15dp"
             android:layout_marginBottom="60dp"
-            android:background="@drawable/round_gray" />
+            android:text="번호 추가하기"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#F95959"
+            android:background="@drawable/round_default" />
 
 
     </LinearLayout>
