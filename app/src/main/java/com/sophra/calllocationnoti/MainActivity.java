@@ -142,6 +142,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btn_caution.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //주의사항 페이지로 이동
+                Intent intent = new Intent(getApplicationContext(), CautionActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 }
